@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/TIL/',
+    base: '/TudyDev/',
     title: '코린투디',
     description: 'Today I Learned',
     themeConfig: {
