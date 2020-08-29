@@ -1,6 +1,7 @@
-## **[121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **
+## [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
 **Problem :**
+
 Say you have an array for which the *i*th element is the price of a given stock on day *i*.
 
 If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
@@ -44,6 +45,7 @@ public class Leetcode_121 {
 
         for(int i=0;i<length;i++){
             for(int j=1;j<length;j++){
+
                 price = prices[j]-prices[i];
                 if(price>maxPrice && i<j){
                     maxPrice = price;
@@ -52,10 +54,10 @@ public class Leetcode_121 {
         }
 
         return maxPrice;
-
     }
 }
 ```
 
 **Experience 1:**
-`20200809` 이중포문으로 값을 구하는 것 말고는 생각이 나지 않는다...
+
+`2020.08.09` 이중포문으로 값을 구하는 것 말고는 생각이 나지 않는다...

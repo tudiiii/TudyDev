@@ -14,6 +14,6 @@
 ### 🧠 Algorithm
 - [Leetcode 121. Best Time to Buy and Sell Stock](https://tudiiii.github.io/TudyDev/Algorithm/Leetcode_121)
 
-## TudyDev ( Today I Learned )
-- [2020.08](https://tudiiii.github.io/TudyDev/TudyDev/2020.08)
-- [2020.09](https://tudiiii.github.io/TudyDev/TudyDev/2020.09)
+## TIL ( Today I Learned )
+- [2020.08](https://tudiiii.github.io/TudyDev/TIL/2020.08)
+- [2020.09](https://tudiiii.github.io/TudyDev/TIL/2020.09)
