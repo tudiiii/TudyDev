@@ -7,7 +7,7 @@
 ### ☕ Java
 
 ### 🍰 Java 메소드 정리
-- [subString / indexOf와 lastIndexOf의 차이 / Split / CharAt]()
+- subString / indexOf와 lastIndexOf의 차이 / Split / CharAt
 
 ### 🧠 Algorithm
 
