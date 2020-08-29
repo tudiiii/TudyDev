@@ -7,14 +7,14 @@ set -e
 yarn docs:build
 
 # build가 output된 폴더로 이동한다. 
-cd docs/.vuepress/dist
+cd .vuepress/dist
 
 # https://<USERNAME>.github.io 에 배포하는 경우
-git clone https://github.com/tudiiii/tudiiii.github.io
+# git clone https://github.com/<USERNAME>/<USERNAME>.github.io/
 
 # https://<USERNAME>.github.io/<REPO> 에 배포하는 경우
 # 필자는 이 경우에 해당한다.
-# git clone -b gh-pages https://github.com/tudiiii/TIL/
+git clone -b gh-pages https://github.com/tudiiii/tudiiii.github.io/
 
 # .git의 내용을 복사한 후 clone은 삭제한다.
 cp -rf tudiiii.github.io/.git ./.git
@@ -26,10 +26,10 @@ git add .
 git commit -m '$1'
 
 # https://<USERNAME>.github.io/<REPO> 에 배포하는 경우
-git push origin master
+# git push origin master
 
 # https://<USERNAME>.github.io/<REPO> 에 배포하는 경우
 # 필자는 이 경우에 해당한다.
-# git push origin gh-pages
+git push origin gh-pages
 
 cd -
