@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/tudiiii.github.io/',
+    base: '/TIL/',
     title: '코린투디',
     description: 'Today I Learned',
     themeConfig: {
