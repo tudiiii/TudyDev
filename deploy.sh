@@ -10,9 +10,9 @@ yarn docs:build
 cd .vuepress/dist
 
 # gh-pages clone
-git clone -b gh-pages https://github.com/tudiiii/TIL/
-cp -rf TIL/.git ./.git
-rm -rf TIL
+git clone -b gh-pages https://github.com/tudiiii/TudyDev/
+cp -rf TudyDev/.git ./.git
+rm -rf TudyDev
 
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
