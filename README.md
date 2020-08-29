@@ -17,4 +17,4 @@
 ## TIL ( Today I Learned )
 - [2020.09](https://tudiiii.github.io/TudyDev/TIL/2020.09)
 - [2020.08](https://tudiiii.github.io/TudyDev/TIL/2020.08)
-- [2020.08](https://tudiiii.github.io/TudyDev/TIL/~2020.07)
+- [~2020.07](https://tudiiii.github.io/TudyDev/TIL/~2020.07)
