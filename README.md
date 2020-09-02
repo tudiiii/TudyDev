@@ -7,7 +7,7 @@
 ## Posts
 
 ### ☕ Java
-- [자바의 구동 방식](https://tudiiii.github.io/TudyDev/JAVA/자바구동방식)
+- [자바의 실행 구조](https://tudiiii.github.io/TudyDev/JAVA/자바실행구조)
 
 ### 🍰 Java 메소드 정리
 - [subString / indexOf와 lastIndexOf의 차이 / Split / CharAt](https://tudiiii.github.io/TudyDev/JAVA's%20method/문자열잘라내기)
