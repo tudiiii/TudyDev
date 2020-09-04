@@ -20,6 +20,9 @@
 - [Programmmers 42726. 가장 큰 수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42726)
 - [Programmmers 42748. K번째수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42748)
 
+### 🛠 Data Structure
+- [우선순위 큐](https://tudiiii.github.io/TudyDev/data_structure/우선순위큐)
+
 ## TIL ( Today I Learned )
 - [2020.09](https://tudiiii.github.io/TudyDev/TIL/2020.09)
 - [2020.08](https://tudiiii.github.io/TudyDev/TIL/2020.08)
