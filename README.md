@@ -17,7 +17,7 @@
 - [Leetcode 121. Best Time to Buy and Sell Stock](https://tudiiii.github.io/TudyDev/Algorithm/Leetcode_121)
 
 ### Programmers
-- [programmers 42626. 더 맵게](https://programmers.co.kr/learn/courses/30/lessons/42626)
+- [programmers 42626. 더 맵게](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42626)
 - [Programmers 42726. 가장 큰 수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42726)
 - [Programmers 42748. K번째수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42748)
 
