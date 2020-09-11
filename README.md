@@ -23,6 +23,9 @@
 - [Programmers 42726. 가장 큰 수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42726)
 - [Programmers 42748. K번째수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42748)
 
+### HackerRank
+- [HackerRank 00001. halloween-sale](https://tudiiii.github.io/TudyDev/Algorithm/hackerrank_halloween_sale)
+
 ### 🛠 Data Structure
 - [우선순위 큐](https://tudiiii.github.io/TudyDev/data_structure/우선순위큐)
 
