@@ -24,6 +24,7 @@
 - [Programmers 42748. K번째수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42748)
 
 ### HackerRank
+- [HackerRank 00002. strange-counter](https://tudiiii.github.io/TudyDev/Algorithm/hackerrank_strange_counter)
 - [HackerRank 00001. halloween-sale](https://tudiiii.github.io/TudyDev/Algorithm/hackerrank_halloween_sale)
 
 ### 🛠 Data Structure
