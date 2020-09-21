@@ -27,7 +27,7 @@
 - [HackerRank 00002. strange-counter](https://tudiiii.github.io/TudyDev/Algorithm/hackerrank_strange_counter)
 - [HackerRank 00001. halloween-sale](https://tudiiii.github.io/TudyDev/Algorithm/hackerrank_halloween_sale)
 
-### 🛠 Data Structure
+#### 🛠 Data Structure
 - [우선순위 큐](https://tudiiii.github.io/TudyDev/data_structure/우선순위큐)
 
 ## TIL ( Today I Learned )
