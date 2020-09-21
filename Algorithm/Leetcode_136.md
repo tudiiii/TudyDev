@@ -87,6 +87,6 @@ public class Leetcode_136Test {
 ```
 **Experience 1:**
 
-`20200912`
+`20200912` `time limit excceed` 에러가 발생했다.
 
-`20200913`
+`20200913` 
