@@ -13,17 +13,17 @@
 - [subString / indexOf와 lastIndexOf의 차이 / Split / CharAt](https://tudiiii.github.io/TudyDev/JAVA's%20method/문자열잘라내기)
 
 ### 🧠 Algorithm
-### Leetcode
+#### Leetcode
 - [Leetcode 121. Best Time to Buy and Sell Stock](https://tudiiii.github.io/TudyDev/Algorithm/Leetcode_121)
 
-### Programmers
+#### Programmers
 - [programmers 42862. 체육복](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42862)
 - [programmers 42586. 기능개발](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42586)
 - [programmers 42626. 더 맵게](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42626)
 - [Programmers 42726. 가장 큰 수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42726)
 - [Programmers 42748. K번째수](https://tudiiii.github.io/TudyDev/Algorithm/Programmers_42748)
 
-### HackerRank
+#### HackerRank
 - [HackerRank 00002. strange-counter](https://tudiiii.github.io/TudyDev/Algorithm/hackerrank_strange_counter)
 - [HackerRank 00001. halloween-sale](https://tudiiii.github.io/TudyDev/Algorithm/hackerrank_halloween_sale)
 
