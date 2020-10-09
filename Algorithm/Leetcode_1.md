@@ -1,68 +1,105 @@
 
-## [136. Single NUmber](https://leetcode.com/problems/single-number/)
+## [1. Two sum](https://leetcode.com/problems/two-sum/)
 
 **Problem :**
 
-Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
-Note:
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
-Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+You can return the answer in any order.
 
 **Example 1:**
 
 ```
-Input: [2,2,1]
-Output: 1
-Example 2:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Output: Because nums[0] + nums[1] == 9, we return [0, 1].
 ```
 
 **Example 2:**
 
 ```
-Input: [4,1,2,1,2]
-Output: 4
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+```
+
+**Example 3:**
+
+```
+Input: nums = [3,3], target = 6
+Output: [0,1]
 ```
 
 **Source Code 1:**
 
 ```java
-// 136. Single Number
-// runtime : 17 ms, memory : 45.7 MB
+import java.util.ArrayList;
+import java.util.List;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+public class Leetcode_1 {
+/*
+    Runtime: 129 ms
+    Memory Usage: 39.5 MB
+*/
 
-public class Leetcode_136 {
-    public int singleNumber(int[] nums) {
-        LinkedList<Integer> number = new LinkedList<>();
+public int[] twoSum2(int[] nums, int target) {
 
-        Arrays.sort(nums); // 정렬
-        for(int num : nums) number.offer(num);
+        List<Integer> answerList = new ArrayList<>();
+        int count;
 
-        return sameNumberDelete(number);
-    }
+        for(int i=0;i<nums.length;i++){
+            int num = target-nums[i]; // target이 되기 위해 필요한 수
+            count=0;
 
-    // 같은 값 제거 함
-    public int sameNumberDelete(LinkedList<Integer> number){
-        int i=0;
-        while(number.size()!=0){
-            if(number.size()==1){ // 숫자가 하나일 때
-                return number.remove(i);
+            while(count!=nums.length){
+                if(num == nums[count] && count!=i){
+                    // 합해서 target이 되는 수의 인덱스
+                    answerList.add(i);
+                    answerList.add(count);
+                    break;
+                }
+                count++;
             }
 
-            if(!number.get(i).equals(number.get(i+1))){ // 숫자가 같은게 없으면 바로 값 리턴
-                return number.remove(i);
-            }
-
-            // 같은 값들 삭제
-            number.remove(i);
-            // i값이 remove(i)가 되기 전 i++값이 remove(i)한 후 i값이 되므로 i++이 아니라 i를 remove
-            number.remove(i);
+            if(answerList.size()==2) break; // answerList에 필요한 값이 있으면 break
         }
 
-        return 1;
+        // List -> array
+        int[] answer = new int[answerList.size()];
+        for(int i=0; i<answerList.size(); i++){
+            answer[i] = answerList.get(i);
+        }
 
+        return answer;
+    }
+```
+
+**Source Code 2:**
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Leetcode_1 {
+/*
+    Runtime: 1 ms
+    Memory Usage: 39 MB
+*/
+
+    public int[] twoSum(int[] nums, int target) {
+
+        Map<Integer, Integer> answerMap = new HashMap<>();
+
+        for(int i=0;i<nums.length;i++) 	{
+            int num = target - nums[i]; // target이 되기 위해 필요한 수
+            if(answerMap.containsKey(num))
+                // num의 인덱스, num과 합하면 taget이 되는 수의 인덱스
+                return new int[] {i, answerMap.get(num)};
+            answerMap.put(nums[i], i);
+        }
+
+        return new int []{-1,-1};
     }
 }
 ```
@@ -72,21 +109,18 @@ public class Leetcode_136 {
 import org.junit.Assert;
 import org.junit.Test;
 
-public class Leetcode_136Test {
+public class Leetcode_1Test {
 
-    Leetcode_136 s = new Leetcode_136();
+    Leetcode_1 s = new Leetcode_1();
 
     @Test
     public void test(){
-        Assert.assertEquals(s.singleNumber(new int[]{2,2,1}),1);
-        Assert.assertEquals(s.singleNumber(new int[]{4,1,2,1,2}),4);
-        Assert.assertEquals(s.singleNumber(new int[]{1}),1);
-        Assert.assertEquals(s.singleNumber(new int[]{120,257,275,231,3,-98,181,-127,80,-37,154,-7,68,201,126,1,271,71,121,-117,-5,387,87,-33,234,-95,340,275,97,37,-109,-86,71,-185,45,-34,315,311,358,163,379,377,273,1,288,185,-60,-135,76,-101,-165,399,149,319,-150,-53,170,95,263,138,369,5,225,126,178,160,278,300,142,-63,-110,62,347,59,391,188,-13,-192,244,234,273,369,48,340,-117,261,-93,214,196,278,142,-8,349,-127,321,-102,183,-170,61,151,-29,286,201,377,2,-78,-181,268,339,154,249,-49,242,347,70,-77,-170,193,-60,226,-98,315,328,102,70,214,160,78,65,13,211,335,-50,120,309,-53,302,391,-179,3,65,-67,-99,-121,95,-94,123,55,-49,371,27,218,360,165,30,-40,-160,55,159,7,26,-38,74,207,-119,85,-179,321,-160,-82,363,310,350,284,168,182,133,-145,-94,335,-185,-75,227,331,-80,-96,58,78,362,138,235,53,211,395,-187,-29,-13,322,-115,-115,348,19,272,149,-119,17,58,203,181,-91,263,-31,17,207,271,-105,-136,-129,-40,319,2,-34,212,390,105,135,382,289,-101,268,-33,328,185,-31,-22,182,87,191,168,85,332,-24,349,-187,244,288,203,-24,227,365,371,-195,-38,30,-102,289,344,-96,121,97,231,-135,390,-192,298,286,144,212,318,26,102,258,225,-195,311,27,144,322,117,-77,105,-82,48,170,-5,310,-43,-93,264,218,235,-109,392,-194,194,59,178,45,-80,-7,117,287,80,226,284,5,-181,206,276,61,264,249,365,302,-129,392,-75,362,196,155,-63,387,151,-37,-145,74,331,62,287,37,261,159,135,-50,325,-165,-22,399,123,-121,216,318,238,199,53,332,10,350,191,325,183,41,272,216,165,-86,300,133,258,10,7,-43,163,-67,194,188,298,199,309,76,-16,379,344,19,193,360,68,242,-136,-110,339,382,13,-95,-91,276,-105,238,206,-99,-150,41,-16,358,-78,-8,155,257,395,363,-194}),348);
+
+        Assert.assertEquals(s.twoSum(new int[]{2,7,11,15},9),new int[]{0,1});
+        Assert.assertEquals(s.twoSum(new int[]{3,2,4},6), new int[]{1,2});
     }
 }
 ```
 **Experience 1:**
 
-`20200912` 나는 `LinkedList`에 데이터를 대입해서 숫자가 같을경우에 그 숫자를 아예 리스트에서 삭제시켜버리고, 만약 모든 숫자를 비교했을 때 같은 숫자가 없으면 그 값을 바로 return 시켜줬다. but....테스트 마지막 assertEquals에 들어가는 테스트 케이스에서 `time limit excceed` 에러가 발생했다. omg....
-
-`20200913` Single Number 문제는 처음 리스트에 값을 넣어줄때 `Arrays.sort()` 정렬을 시켜주고 로직을 실행하니깐 타임에러가 뜨지 않았다! 같은 숫자를 리스트를 다 돌면서 찾지 않고 다음 순번에 찾을 수 있으니까 더 빨리 실행되어서 타임에러가 뜨지 않은것 같다. 또한, 메소드를 따로 빼서 모듈화를 시켜주니까 런타임이 142ms에서 6ms까지 줄어들었다. 런 타임 줄이는 재미 이즈 뿌-듯
+처음에 문제를 풀었는데 runtime 거의 푼 사람 중에 꼴지.. ~~거의도 아니고 그냥 꼴지 ㅎ;~~ 이중 포문을 사용하고 싶지않아서 리스트를 사용했는데 이중 포문을 사용하는 것보다 더 오랜 시간이 걸렸다. 다른 사람이 푼 문제를 보니까 나와 같은 방식인데 `map`을 사용해서 `key`,`value`값으로 쉽게 찾는 것을 보고 따라풀었더니 runtime 1ms!! 136ms에서 1ms까지 ㅎ^^ 분발을 더 해야겠다는 생각이 드는 문제였다. 
