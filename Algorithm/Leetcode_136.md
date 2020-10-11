@@ -14,7 +14,6 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 ```
 Input: [2,2,1]
 Output: 1
-Example 2:
 ```
 
 **Example 2:**
