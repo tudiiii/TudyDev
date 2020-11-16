@@ -1,5 +1,5 @@
 
-## [42627. 프린터](https://programmers.co.kr/learn/courses/30/lessons/42587)
+## [42587. 프린터](https://programmers.co.kr/learn/courses/30/lessons/42587)
 
 **Problem :**
 
@@ -58,33 +58,16 @@ public class Programmers_42587 {
 import org.junit.Assert;
 import org.junit.Test;
 
-public class programmers_42626Test {
+public class Programmers_42587Test {
 
-    programmers_42626 s = new programmers_42626();
-
-    @Test
-    public void 입출력예(){
-        int[] scoville = {1,2,3,9,10,12};
-        int K = 7;
-        int expected = 2;
-
-        Assert.assertEquals(s.solution(scoville,K),expected);
-    }
+    Programmers_42587 s = new Programmers_42587();
 
     @Test
-    public void K가되지않을때(){
-        int[] scoville = {1,2,3};
-        int K = 20;
-        int expected = -1;
-
-        Assert.assertEquals(s.solution(scoville,K),expected);
+    public void test(){
+        Assert.assertEquals(s.solution(new int[]{2, 1, 3, 2},2),1);
     }
 }
 ```
 
 **Experience 1:**
-`20200905` 힙은 데이터를 입력하면 자동으로 우선순위에 따라 정렬해준다. 그래서 나는 우선순위 큐를 이용해서 문제를 풀었다. 값을 `offer()`로 넣어준 후, 정렬된 데이터 값을 `poll()`할 때마다 스코빌을 계산하여 `K`보다 작으면 `offer()`해주고 `count++`를 해주면된다. 이 때 `K`보다 값이 크면 break로 나와준다.
-
-포인트는 스코빌을 계산할 때 `K`를 넘지 않을때도 있다는 점 ! 이거때문에 계속 3개 에러나서 초콤 열받았다는 점 ^^:
-
-우선순위 큐에 대해 잘 모르면 내가 [우선순위에 대해 정리한 글](https://tudiiii.github.io/TudyDev/data_structure/우선순위큐)을 한 번 읽어보는 것도 좋을것 같다.
+`20201115` 더맵게 문제랑 비슷한 문제 유형이다. 우선수위큐를 이용해서 문제를 풀었다. `PriorityQueue`에 값어 출력 순서를 정한 후, prioritest 배열과 비교해가면서 값을 찾아 내면 된다.
