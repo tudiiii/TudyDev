@@ -1,6 +1,6 @@
 # Tudy's DevNote 🐢
 
-매일 매일 꾸준하게 !
+매일 매일 꾸준하게 ! Today I Learn
 
 - [GitHub Page](https://github.com/tudiiii/TudyDev)
 
@@ -37,8 +37,3 @@
 
 #### 🛠 Data Structure
 - [우선순위 큐](https://tudiiii.github.io/TudyDev/data_structure/우선순위큐)
-
-## TIL ( Today I Learned )
-- [2020.09](https://tudiiii.github.io/TudyDev/TIL/2020.09)
-- [2020.08](https://tudiiii.github.io/TudyDev/TIL/2020.08)
-- [~2020.07](https://tudiiii.github.io/TudyDev/TIL/~2020.07)
