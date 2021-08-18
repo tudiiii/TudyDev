@@ -7,7 +7,7 @@
 ## Posts
 
 ### ☕ Java
-#### 이것이 자바다 완독 
+#### 이것이 자바다 완독 정리 글
 - [chapter 1. 자바로 시작하기](https://tudiiii.github.io/TudyDev/thisisjava/chapter01)
 
 ### 🍰 Java 
