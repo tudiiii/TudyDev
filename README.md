@@ -2,18 +2,18 @@
 
 ## 매일 매일 꾸준하게 ! Today I Learn
 
-|목차|내용|
-|:---:|:---:|
-|[JAVA](#☕️-java-☕️)|자바를 공부한 것에 대한 정리|
-|[ALGORITHM](#🧠-algorithmhttpsgithubcomtudiiiialgorithm)|알고리즘 문제 풀고 정리|
-|[DATA STRUCTURE](#🛠-data-structure)|자료구조에 대한 내용 정리|
-|[STUDY](#✏️-study)|기술 책 읽고 내용 정리|
-|[BOOK](#📚-book)|개발책 읽고 느점 정리|
-|[REACT](#🌱-reacthttpsgithubcomtudiiiiabout-react)|리액트 공부한 것에 대한 정리|
+|CONTENTS|
+|:---:|
+|[JAVA](#☕️-java)|
+|[ALGORITHM](#🧠-algorithmhttpsgithubcomtudiiiialgorithm)|
+|[DATA STRUCTURE](#🛠-data-structure)|
+|[STUDY](#✏️-study)|
+|[BOOK](#📚-book)|
+|[REACT](#🌱-reacthttpsgithubcomtudiiiiabout-react)|
 
 <br>
 
-### ☕️ JAVA ☕️  
+### ☕️ JAVA  
 
 - [자바의 실행 구조](https://tudiiii.github.io/TudyDev/JAVA/자바실행구조)
 - [subString / indexOf와 lastIndexOf의 차이 / Split / CharAt](https://tudiiii.github.io/TudyDev/JAVA's%20method/문자열잘라내기)
