@@ -4,7 +4,7 @@
 
 |목차|
 |:---:|
-|[JAVA](#☕️-java)|
+|[JAVA](#java-☕️)|
 |[ALGORITHM](#🧠-algorithmhttpsgithubcomtudiiiialgorithm)|
 |[DATA STRUCTURE](#🛠-data-structure)|
 |[STUDY](#✏️-study)|
