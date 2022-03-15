@@ -3,10 +3,15 @@
 ## 매일 매일 꾸준하게 ! Today I Learn
 
 [JAVA](#☕️-java)
+
 [ALGORITHM](#🧠-algorithmhttpsgithubcomtudiiiialgorithm)
+
 [DATA STRUCTURE](#🛠-data-structure)
+
 [STUDY](#✏️-study)
+
 [BOOK](#📚-book)
+
 [REACT](#🌱-reacthttpsgithubcomtudiiiiabout-react)
 
 <br>
