@@ -20,11 +20,12 @@
 
 <br>
 
-#### 책 내용정리
+### 책 내용정리
 
 |이것이 자바다|
 |:---:|
 |[chapter 1. 자바로 시작하기](https://tudiiii.github.io/TudyDev/thisisjava/chapter01)|
-|chapter 2.|
 
-#### 개발서적
+<br>
+
+### 개발서적
