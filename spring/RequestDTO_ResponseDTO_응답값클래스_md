@@ -1,0 +1,219 @@
+# Reqeust DTO, Response DTO 정리 / 응답값 클래스 생성
+
+## JSON <-> Java Object
+
+먼저 `spring-boot-starter-web`으로 부터 `Jackson`라이브러리가 함께 추가된다.
+
+보통 웹에서는 JSON으로 req body, res body를 교환한다. 따라서 JSON <-> Java Object의 과정이 필요하다. 이때 `MappingJackson2HttpMessageConverter`가 사용된다.
+
+`@ResponseBody` `@RequestBody` `ResponseEntity<>`와 같은 곳에서 쓰이며 이외에도 JSON <-> Java Object가 필요한 곳이면 사용할 수 있다.
+
+## Reuest DTO : JSON → Request DTO
+
+- BookmarkRequest : 북마크 생성시에 받아온 정보를 매핑할 RequestDto
+- 데이터를 받아 entity로 저장 → toEntity 메서드 생성
+
+```java
+public class BookmarkRequest {
+
+    @NotBlank(message = "url을 입력하세요")
+    private String url;
+
+    @NotBlank(message = "북마크이름을 입력하세요")
+    private String title;
+
+    private Long folderId;
+
+    public Bookmark toEntity(Folder folder){
+        return Bookmark.builder()
+            .url(this.url)
+            .title(this.title)
+            .folder(folder)
+            .build();
+    }
+
+}
+```
+
+controller에서 `@RequestBody` 부분에 넣어 mapping 되도록한다. 
+
+json요청이 오면 reqeustDTO에서 각각의 요소와 매칭을 해준다.
+
+```java
+@PostMapping("/api/bookmarks")
+@ResponseStatus(HttpStatus.OK)
+public void create(@Valid @RequestBody BookmarkRequest bookmarkRequest) {
+    bookmarkService.create(bookmarkRequest);
+ }
+
+/* request
+{ 
+	"url" : "https://naver.com",
+ 	"title" : "네이버",
+ 	"folderId" : 2
+}
+*/
+```
+
+**@RequestBody**를 타고들어가면 아래와 같이 request의 body가 HttpMessageConverter로 던져지고 그곳에서 content-type에 맞는 converter를 찾는다고 적혀있다.
+
+즉 JSON에 맞는 MappingJackson2HttpMessageConverter 를 찾게된다.
+
+![스크린샷 2023-01-20 오후 3.10.03.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d7e2a4dc-a262-4cad-b106-2422870c0223/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-20_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.10.03.png)
+
+HttpMessageConverter의 구현체중 하나로 JSON을 변환해준다.
+
+![스크린샷 2023-01-20 오후 3.14.31.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/27398952-9594-48f5-b017-8a763a528811/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2023-01-20_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.14.31.png)
+
+Json → Java Object로 변환하는 과정은 먼저 이름을 기반으로 getter 또는 setter를 이용해서 DTO필터를 가져온다. 그리고 reflection을 이용해서 DTO에 값을 주입한다.
+
+이렇게 request body의 값들이 담긴 DTO가 되는 것이다.
+
+결과적으로 setter와 getter 중에 하나 그리고 reflection을 위한 기본생성자가 필요하다.
+
+근데 기본적으로 setter 사용은 지양하는 것이 좋으니 getter와 기본생성자가 requestDTO에 필요하다.
+
+- *Reflection API란?*
+    
+    *구체적인 클래스 타입을 알지 못해도 그 클래스의 정보(메서드, 타입, 변수 등등)에 접근할 수 있게 해주는 자바 API다.*
+    
+
+## Response DTO : Resonse DTO → Json
+
+- FolderIdResponse : 폴더를 생성하고 id값을 반환해주는 Response DTO
+
+```java
+public class FolderIdResponse {
+
+    private Long id;
+
+    public static FolderIdResponse fromEntity(Long folderId) {
+        return FolderIdResponse.builder()
+            .id(folderId)
+            .build();
+    }
+}
+```
+
+ResonseEntity에서 mapping이 일어난다.
+
+Json으로 반환하기 위해 jackson을 사용한다. 이때 getter를 사용해서 DTO 값을 가져와 JSON으로 만들어준다.
+
+```java
+@PostMapping("/api/folders")
+public ResponseEntity<FolderIdResponse> create(
+  @Valid @RequestBody CreateFolderRequest createFolderRequest,
+  @AuthenticationPrincipal JwtAuthentication auth) {
+  FolderIdResponse create = folderService.create(auth, createFolderRequest);
+  return ResponseEntity.ok(create);
+}
+```
+
+## 간단한 예제
+
+UserContorller.java
+
+```java
+@RestController
+@RequestMapping("/api/v1/users")
+@RequiredArgsConstructor
+public class UserController {
+
+private final UserService userService;
+
+@PostMapping("/join")
+public Response<UserJoinResponse> join(@RequestBody UserJoinRequest request) {
+    User user = userService.join(request.getUserName(), request.getPassword());
+    return Response.success(UserJoinResponse.fromUser(user));
+}
+}
+```
+
+UserJoinRequest.java
+
+```java
+@Getter
+@AllArgsConstructor
+public class UserJoinRequest {
+    private String userName;
+    private String password;
+}
+```
+
+UserJoinResponse.java
+
+```java
+@Getter
+@AllArgsConstructor
+public class UserJoinResponse {
+
+    private Integer id;
+    private String userName;
+    private UserRole role;
+
+    public static UserJoinResponse fromUser(User user) {
+        return new UserJoinResponse(
+                user.getId(),
+                user.getUserName(),
+                user.getUserRole()
+        );
+    }
+}
+```
+
+### Response.java
+
+응답을 내려줄때 성공할경우와 실패할 경우가 있음 → 응답값이 제각각
+
+프론트/api를 가져다 쓰는곳에서 파싱하기가 힘듦
+
+⇒ 획일화된 응답형태를 생성해서 반환해주는 것이 좋음
+
+```java
+@Getter
+@AllArgsConstructor
+public class Response<T> {
+
+    private String resultCode;
+    private T result;
+
+    public static Response<Void> error(String errorCode) {
+        return new Response<>(errorCode, null);
+    }
+
+    public static <T> Response<T> success(T result) {
+        return new Response<>("SUCCESS", result);
+    }
+}
+```
+
+요청 json
+
+```java
+{
+    "userName" : "test04",
+    "password" : "test"
+}
+```
+
+성공시 결과 값
+
+```java
+{
+    "resultCode": "SUCCESS",
+    "result": {
+        "id": 6,
+        "userName": "test04",
+        "role": "USER"
+    }
+}
+```
+
+실패시 결과 값
+
+```java
+{
+    "resultCode": "DUPLICATED_USER_NAME",
+    "result": null
+}
+```
